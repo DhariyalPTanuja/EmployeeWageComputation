@@ -6,8 +6,8 @@ public class EmployeeWageComputation {
     public int workingHour;
 
     public EmployeeWageComputation() {
-        System.out.println(" Employee Wage Computation Program UC2  !!!");
-        System.out.println("  Calculate Daily Employee Wage");
+        System.out.println(" Employee Wage Computation Program UC3  !!!");
+        System.out.println("  Add Part time Employee & Wage");
 
     }
 
@@ -20,21 +20,25 @@ public class EmployeeWageComputation {
     }
 
     public int getRandomNumber() {
-        int isPresent = (int) (Math.floor(Math.random() * 10) % 2);
+        int isPresent = (int) (Math.floor(Math.random() * 10) % 3);
         return isPresent;
     }
 
     public void checkEmployee() {
-        isPresent= getRandomNumber();
+        isPresent = getRandomNumber();
         System.out.println(isPresent);
         if (isPresent == 0) {
             System.out.println("Employee is absent");
-            workingHour= 0;
+            workingHour = 0;
 
         } else if (isPresent == 1) {
             System.out.println("Employee is Present");
-            workingHour= 8;
+            workingHour = 8;
+        } else {
+            System.out.println("Employee is working as a Part-Time");
+            workingHour = 8;
         }
+
 
     }
     //Calculate Daily Employee Wage
