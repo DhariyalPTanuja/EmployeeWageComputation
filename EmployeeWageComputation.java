@@ -3,33 +3,70 @@ package com.assignment9employeewage;
 import javax.swing.plaf.synth.SynthTabbedPaneUI;
 
 public class EmployeeWageComputation {
-    public int wagePerHour = 20;
+
     public int workingHour;
     public int isPresent;
     public int totalworkingDays = 0;
     public int totalSalary = 0;
-    public int numWorkingDays = 20;
-    public int hoursInMonth = 100;
     int dailyWage;
     public int totalWorkingHour = 0;
 
-//Calculate Wages till a condition of total working hours or days is reached for a month
-//- Assume 100 hours and 20 days
 
     public EmployeeWageComputation() {
-        System.out.println(" Employee Wage Computation Program UC7  !!!");
-        System.out.println("  Refactor the Code to write a Class Method to Compute Employee Wage");
+        System.out.println(" Employee Wage Computation Program UC8  !!!");
+        System.out.println("  Compute Employee Wage for multiple companies");
 
     }
 
     public static void main(String[] args) {
         System.out.println("welcome to the Employee Wage Computation!!!");
         EmployeeWageComputation empobj = new EmployeeWageComputation();
-        EmployeeWageFunctions empFunObj = new EmployeeWageFunctions();
-        empFunObj.calculateMonthlyWage();
+        empobj.calculateMonthlyWage("Adidas",100,22,50);
 
-
+        empobj.calculateMonthlyWage("Reebok",100,20,100);
     }
+    public int getRandomNumber() {
+        int isPresent = (int) (Math.floor(Math.random() * 10) % 3);
+        return isPresent;
+    }
+
+    public void checkEmployee() {
+        isPresent = getRandomNumber();
+
+        //System.out.println(isPresent);
+        switch (isPresent) {
+            case 0:
+                System.out.println("Employee is absent");
+                workingHour = 0;
+                break;
+            case 1:
+                System.out.println("Employee is Present");
+                workingHour = 8;
+                break;
+            default:
+                System.out.println("Employee is working  Part-Time");
+                workingHour = 8;
+                break;
+        }
+    }
+    // Calculate Employee Wage
+    public int calculateMonthlyWage(String company ,int hoursInMonth, int numWorkingDays,int wagePerHour) {
+
+        while (totalWorkingHour <= hoursInMonth && totalworkingDays <= numWorkingDays) {
+            totalworkingDays++;
+            checkEmployee();
+
+            int dailyWage = wagePerHour * workingHour;
+            totalWorkingHour = totalWorkingHour + workingHour;
+            totalSalary = dailyWage + totalSalary;
+
+        }
+        System.out.println("Days = " + totalworkingDays + " EmpHours = " + totalWorkingHour);
+        System.out.println("Total EmpWage for Company :" +company + " is :"  + totalSalary);
+        return totalSalary;
+    }
+
+
 
 
 }
