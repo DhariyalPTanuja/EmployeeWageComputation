@@ -6,8 +6,8 @@ public class EmployeeWageComputation {
     public int workingHour;
 
     public EmployeeWageComputation() {
-        System.out.println(" Employee Wage Computation Program UC3  !!!");
-        System.out.println("  Add Part time Employee & Wage");
+        System.out.println(" Employee Wage Computation Program UC4  !!!");
+        System.out.println("  Solving using Switch Case Statement");
 
     }
 
@@ -27,17 +27,21 @@ public class EmployeeWageComputation {
     public void checkEmployee() {
         isPresent = getRandomNumber();
         System.out.println(isPresent);
-        if (isPresent == 0) {
-            System.out.println("Employee is absent");
-            workingHour = 0;
-
-        } else if (isPresent == 1) {
-            System.out.println("Employee is Present");
-            workingHour = 8;
-        } else {
-            System.out.println("Employee is working as a Part-Time");
-            workingHour = 8;
+        switch (isPresent) {
+            case 0:
+                System.out.println("Employee is absent");
+                workingHour = 0;
+                break;
+            case 1:
+                System.out.println("Employee is Present");
+                workingHour = 8;
+                break;
+            default:
+                System.out.println("Employee is working  Part-Time");
+                workingHour = 8;
+                break;
         }
+
 
 
     }
