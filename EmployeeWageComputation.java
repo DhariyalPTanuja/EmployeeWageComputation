@@ -9,13 +9,16 @@ public class EmployeeWageComputation {
     public int totalworkingDays = 0;
     public int totalSalary = 0;
     public int numWorkingDays = 20;
+    public int hoursInMonth = 100;
     int dailyWage;
     public int totalWorkingHour = 0;
 
+//Calculate Wages till a condition of total working hours or days is reached for a month
+//- Assume 100 hours and 20 days
 
     public EmployeeWageComputation() {
-        System.out.println(" Employee Wage Computation Program UC4  !!!");
-        System.out.println("  Calculating Wages for a Month");
+        System.out.println(" Employee Wage Computation Program UC6  !!!");
+        System.out.println("  Calculate Wages till a condition of total working hours or days is reached for a month");
 
     }
 
@@ -53,15 +56,16 @@ public class EmployeeWageComputation {
     }
     // Calculate Employee Wage
     public void calculateMonthlyWage() {
-        while (totalworkingDays < numWorkingDays) {
-            //checkWorkHour();
-            checkEmployee();
-            int dailyWage = wagePerHour * workingHour;
-            totalSalary = dailyWage + totalSalary;
-            totalworkingDays++;
+            while (totalWorkingHour < hoursInMonth && totalworkingDays < numWorkingDays) {
+                checkEmployee();
+                int dailyWage = wagePerHour * workingHour;
+                totalWorkingHour = totalWorkingHour + workingHour;
+                totalSalary = dailyWage + totalSalary;
+                totalworkingDays++;
+            }
+            System.out.println("totalworkingDays = " + totalworkingDays);
+        System.out.println("totalworkingHours = " + totalWorkingHour);
+            System.out.println("the total wage of employee is = " + totalSalary);
         }
-        System.out.println("totalworkingDays = " + totalworkingDays);
-        System.out.println("the total wage of employee is = " + totalSalary);
 
-    }
 }
