@@ -12,9 +12,9 @@ public class EmployeeWageComputation {
     int dailyWage;
     public int totalWorkingHour = 0;
 
-
+    //Calculating Wages for a Month Assume 20 Working Day per Month
     public EmployeeWageComputation() {
-        System.out.println(" Employee Wage Computation Program UC4  !!!");
+        System.out.println(" Employee Wage Computation Program UC5  !!!");
         System.out.println("  Calculating Wages for a Month");
 
     }
