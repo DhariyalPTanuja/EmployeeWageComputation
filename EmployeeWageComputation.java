@@ -1,20 +1,28 @@
 package com.assignment9employeewage;
 
+import javax.swing.plaf.synth.SynthTabbedPaneUI;
+
 public class EmployeeWageComputation {
-    public int isPresent;
     public int wagePerHour = 20;
     public int workingHour;
+    public int isPresent;
+    public int totalworkingDays = 0;
+    public int totalSalary = 0;
+    public int numWorkingDays = 20;
+    int dailyWage;
+    public int totalWorkingHour = 0;
+
 
     public EmployeeWageComputation() {
         System.out.println(" Employee Wage Computation Program UC4  !!!");
-        System.out.println("  Solving using Switch Case Statement");
+        System.out.println("  Calculating Wages for a Month");
 
     }
 
     public static void main(String[] args) {
         System.out.println("welcome to the Employee Wage Computation!!!");
         EmployeeWageComputation empobj = new EmployeeWageComputation();
-        empobj.calculateDailyWage();
+        empobj.calculateMonthlyWage();
 
 
     }
@@ -26,7 +34,8 @@ public class EmployeeWageComputation {
 
     public void checkEmployee() {
         isPresent = getRandomNumber();
-        System.out.println(isPresent);
+
+        //System.out.println(isPresent);
         switch (isPresent) {
             case 0:
                 System.out.println("Employee is absent");
@@ -41,16 +50,18 @@ public class EmployeeWageComputation {
                 workingHour = 8;
                 break;
         }
-
-
+    }
+    // Calculate Employee Wage
+    public void calculateMonthlyWage() {
+        while (totalworkingDays < numWorkingDays) {
+            //checkWorkHour();
+            checkEmployee();
+            int dailyWage = wagePerHour * workingHour;
+            totalSalary = dailyWage + totalSalary;
+            totalworkingDays++;
+        }
+        System.out.println("totalworkingDays = " + totalworkingDays);
+        System.out.println("the total wage of employee is = " + totalSalary);
 
     }
-    //Calculate Daily Employee Wage
-
-    public void calculateDailyWage(  ) {
-        checkEmployee();
-        int dailyWage = wagePerHour*workingHour;
-        System.out.println("the daily wage of employee is = " + dailyWage);
-    }
-
 }
